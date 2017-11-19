@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Friend Finder</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Friend Finder</h1>
+                <hr>
+                <p>You just might find your newest friend...</p>
+            </div>
+            <!-- begin form -->
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="userName">Let's begin with your name...</label>
+                        <input type="text" class="form-control" id="userName" placeholder="Your name" required>
+                        <small id="emailHelp" class="form-text text-muted">Your new friend has to know who you are.</small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="photoLink">Now we need a link for your image</label>
+                        <input type="text" class="form-control" id="photoLink" placeholder="Link for your image" required>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group col-md-6">
+                    <label for="quest1">1) I love to experience new things</label>
+                    <select id="quest1" class="form-control" required>
+                        <option selected>Choose...</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="quest2">2) I occasionaly workout</label>
+                    <select id="quest2" class="form-control" required>
+                        <option selected>Choose...</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="quest3">3) I consider myself an outdoor person</label>
+                    <select id="quest3" class="form-control" required>
+                        <option selected>Choose...</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="quest4">4) Fun for me is a night in the city</label>
+                    <select id="quest4" class="form-control" required>
+                        <option selected>Choose...</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="quest5">5) I love to watch movies</label>
+                    <select id="quest5" class="form-control" required>
+                        <option selected>Choose...</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="quest6">6) I consider myself a music junkie</label>
+                    <select id="quest6" class="form-control" required>
+                        <option selected>Choose...</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="quest7">7) I am an intellectual</label>
+                    <select id="quest7" class="form-control" required>
+                        <option selected>Choose...</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="quest8">8) I love to stay on top of fashion trends</label>
+                    <select id="quest8" class="form-control" required>
+                        <option selected>Choose...</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="quest9">9) Life should be lived on the edge sometimes</label>
+                    <select id="quest9" class="form-control" required>
+                        <option selected>Choose...</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="quest10">10) I am a foodie</label>
+                    <select id="quest10" class="form-control" required>
+                        <option selected>Choose...</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <!-- end form -->
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
