@@ -50,3 +50,6 @@ var friends = [{
         scores: [3, 4, 5, 3, 4, 1, 3, 5, 2, 3]
     }
 ]
+
+// export for use in server.js
+module.exports = friends;
