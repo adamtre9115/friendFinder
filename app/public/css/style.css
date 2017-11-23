@@ -2,6 +2,11 @@
     home styles
 ***************/
 
+h1 {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
 #homeBody {
     background-image: url("../images/happyPeople.jpg");
     background-repeat: no-repeat;
@@ -43,8 +48,12 @@
     survey styles
 *****************/
 
+#surveyBody {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .surveyJumbotron {
-    background: rgba(169, 113, 40, 0.7);
+    background: rgb(169, 113, 40);
     color: #070709;
 }
 
@@ -77,4 +86,19 @@ input[type="text"]:focus {
 
 .quoteText {
     font-size: 13px;
+}
+
+span {
+    color: #fff;
+}
+
+footer {
+    background: rgb(169, 113, 40);
+    padding: 30px;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+footer a {
+    color: #000;
 }

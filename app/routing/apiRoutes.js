@@ -6,10 +6,6 @@ module.exports = function (app) {
         res.json(friendsData);
     });
     // API POST Requests
-    // Below code handles when a user submits a form and thus submits data to the server.
-    // In each of the below cases, when a user submits form data (a JSON object)
-    // ...the JSON is pushed to the appropriate JavaScript array
-    // ---------------------------------------------------------------------------
 
     app.post('/api/friends', function (req, res) {
         //grabs the new friend's scores to compare with friends in friendList array

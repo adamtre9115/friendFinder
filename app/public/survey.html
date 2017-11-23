@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <!-- bootstrap 4 -->
@@ -22,7 +23,8 @@
     <section>
         <div class="container">
             <div class="jumbotron surveyJumbotron text-center">
-                <h1>Friend Finder</h1>
+                <h1>
+                    <i class="fa fa-users" aria-hidden="true"></i> Friend Finder</h1>
                 <hr>
                 <p>You just might find your newest friend...</p>
 
@@ -217,6 +219,13 @@
         <!--end modal  -->
     </section>
 
+    <footer class="text-center">
+        <span>&copy;2017 Tresean Adam
+            <a href="/api/friends">API Friends List</a> |
+            <a href="https://github.com/adamtre9115/friendFinder" target="_blank">Github Repo</a>
+        </span>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
@@ -228,52 +237,69 @@
         $("#submit").on("click", function (e) {
             e.preventDefault();
 
-            var userInfo = {
-                name: $("#userName").val().trim(),
-                photo: $("#photoLink").val().trim(),
-                scores: [
-                    $("#quest1").val(),
-                    $("#quest2").val(),
-                    $("#quest3").val(),
-                    $("#quest4").val(),
-                    $("#quest5").val(),
-                    $("#quest6").val(),
-                    $("#quest7").val(),
-                    $("#quest8").val(),
-                    $("#quest9").val(),
-                    $("#quest10").val()
-                ]
+            // Form validation
+            function validateForm() {
+                var isValid = true;
+                $('.form-control').each(function () {
+                    if ($(this).val() === '')
+                        isValid = false;
+                });
+                $('.chosen-select').each(function () {
+                    if ($(this).val() === "")
+                        isValid = false
+                })
+                return isValid;
             }
 
-            console.log(userInfo);
+            if (validateForm() === true) {
+                var userInfo = {
+                    name: $("#userName").val().trim(),
+                    photo: $("#photoLink").val().trim(),
+                    scores: [
+                        $("#quest1").val(),
+                        $("#quest2").val(),
+                        $("#quest3").val(),
+                        $("#quest4").val(),
+                        $("#quest5").val(),
+                        $("#quest6").val(),
+                        $("#quest7").val(),
+                        $("#quest8").val(),
+                        $("#quest9").val(),
+                        $("#quest10").val()
+                    ]
+                }
 
-            function clear() {
-                $("#userName").val("");
-                $("#photoLink").val("");
-                $("#quest1").val("Choose...");
-                $("#quest2").val("Choose...");
-                $("#quest3").val("Choose...");
-                $("#quest4").val("Choose...");
-                $("#quest5").val("Choose...");
-                $("#quest6").val("Choose...");
-                $("#quest7").val("Choose...");
-                $("#quest8").val("Choose...");
-                $("#quest9").val("Choose...");
-                $("#quest10").val("Choose...");
+                console.log(userInfo);
+
+                function clear() {
+                    $("#userName").val("");
+                    $("#photoLink").val("");
+                    $("#quest1").val("Choose...");
+                    $("#quest2").val("Choose...");
+                    $("#quest3").val("Choose...");
+                    $("#quest4").val("Choose...");
+                    $("#quest5").val("Choose...");
+                    $("#quest6").val("Choose...");
+                    $("#quest7").val("Choose...");
+                    $("#quest8").val("Choose...");
+                    $("#quest9").val("Choose...");
+                    $("#quest10").val("Choose...");
+                }
+
+
+                $.post("/api/friends", userInfo, function (data) {
+                    console.log(data);
+                    $("#matchName").html(data.name);
+                    $("#matchImg").attr("src", data.photo);
+                })
+
+                // clear inputs
+                clear();
+
+                // call the modal
+                $('#resultsModal').modal("show");
+
             }
-
-
-            $.post("/api/friends", userInfo, function (data) {
-                console.log(data);
-                $("#matchName").html(data.name);
-                $("#matchImg").attr("src", data.photo);
-            })
-
-            // clear inputs
-            clear();
-
-            // call the modal
-            $('#resultsModal').modal("show");
 
         });
     </script>
