@@ -3,7 +3,7 @@
 ***************/
 
 #homeBody {
-    background: url("https://www.3menmovers.com/wp-content/uploads/2015/11/Happy-People-Sunset-Wallpaper-Free-Background-Desktop-Images-37586.jpg");
+    background-image: url("../images/happyPeople.jpg");
     background-repeat: no-repeat;
     background-position: center;
     color: #070709;
@@ -22,6 +22,20 @@
     background-color: #070709;
     color: #fff;
     border: none;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+    background-color: #fff;
+    color: #9e6205;
+}
+
+.formBtn:hover,
+.modalBtn:hover {
+    background-color: #fff;
+    color: #9e6205;
+    border: 1px solid #9e6205;
 }
 
 
@@ -59,4 +73,8 @@ input[type="text"]:focus {
 
 .form-group {
     margin-top: 30px;
+}
+
+.quoteText {
+    font-size: 13px;
 }

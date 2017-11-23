@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder</title>
 
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <!-- bootstrap 4 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
         crossorigin="anonymous">
@@ -23,6 +25,10 @@
                 <h1>Friend Finder</h1>
                 <hr>
                 <p>You just might find your newest friend...</p>
+
+                <a href="/" class="btn btn-primary">
+                    <i class="fa fa-home" aria-hidden="true"></i> Home
+                </a>
             </div>
             <!-- begin form -->
             <form>
@@ -159,12 +165,56 @@
                             <option value="5">5 (Strongly Agree)</option>
                         </select>
                     </div>
-                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="submit" class="btn btn-primary formBtn">Submit</button>
             </form>
 
             <!-- end form -->
             </section>
         </div>
+
+        <!-- begin modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Your Matched Friend!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 id="matchName">Friend Name</h5>
+                                    <img src="" alt="Image of person" id="matchImg" class="img-fluid">
+                                </div>
+                                <div class="col-md-6">
+                                    We hope the two of you can eat, drink, and be merry together!
+                                </div>
+                            </div>
+                            <!-- end row -->
+                        </div>
+                        <!-- end container -->
+                    </div>
+                    <div class="modal-footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <p class="quoteText">"A friend is someone who gives you total freedom to be yourself..." ~Jim Morrison</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn modalBtn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end modal  -->
     </section>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -200,8 +250,31 @@
             function clear() {
                 $("#userName").val("");
                 $("#photoLink").val("");
+                $("#quest1").val("Choose...");
+                $("#quest2").val("Choose...");
+                $("#quest3").val("Choose...");
+                $("#quest4").val("Choose...");
+                $("#quest5").val("Choose...");
+                $("#quest6").val("Choose...");
+                $("#quest7").val("Choose...");
+                $("#quest8").val("Choose...");
+                $("#quest9").val("Choose...");
+                $("#quest10").val("Choose...");
             }
+
+
+            $.post("/api/friends", userInfo, function (data) {
+                console.log(data);
+                $("#matchName").html(data.name);
+                $("#matchImg").attr("src", data.photo);
+            })
+
+            // clear inputs
             clear();
+
+            // call the modal
+            $('#resultsModal').modal("show");
+
         });
     </script>
 </body>
